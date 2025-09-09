@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main() {
+    int fireSensor, gasSensor;   // 1 = detected, 0 = safe
+    int alarm = 0;
+    int i;   // declare loop variable separately for older compilers
+    printf("Fire and Gas Detection System\n");
+    for (i = 0; i < 5; i++) {   // simulate 5 readings
+        printf("\nEnter Fire Sensor (0=Safe,1=Fire) and Gas Sensor (0=Safe,1=Gas Leak): ");
+        scanf("%d %d", &fireSensor, &gasSensor);
+        if (fireSensor == 1 && gasSensor == 1) {
+            printf("ALERT: Fire and Gas Leak detected! Activate Alarm + Safety Devices.\n");
+            alarm = 1;
+        }
+        else if (fireSensor == 1) {
+            printf("ALERT: Fire detected! Activate Alarm and Sprinkler.\n");
+            alarm = 1;
+        }
+        else if (gasSensor == 1) {
+            printf("ALERT: Gas Leak detected! Activate Alarm and Exhaust Fan.\n");
+            alarm = 1;
+        }
+        else {
+            printf("Safe: No Fire or Gas Leak detected.\n");
+            alarm = 0;
+        }
+        printf("Alarm Status: %s\n", (alarm == 1) ? "ON" : "OFF");
+    }
+  
